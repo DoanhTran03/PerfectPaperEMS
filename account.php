@@ -9,7 +9,7 @@ $emp_lname = "";
 
 // Connect to database.
 $secret = file_get_contents("secret.txt");
-$mysqli = new mysqli("localhost", "killen2_4150_lab3", "re*WPBtDHEabVG", "killen2_4150_lab3");
+$mysqli = new mysqli("localhost", "killen2_4150_lab3", $secret, "killen2_4150_lab3");
 
 if ($mysqli == false) {
     session_destroy();
