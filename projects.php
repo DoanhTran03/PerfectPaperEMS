@@ -6,9 +6,10 @@ $token_exp = $_SESSION["expiration"];
 $emp_id = 0;
 $emp_fname = "";
 $emp_lname = "";
+$secret = file_get_contents("secret.txt");
 
 // Connect to database.
-$mysqli = new mysqli("localhost", "killen2_4150_lab3", "re*WPBtDHEabVG", "killen2_4150_lab3");
+$mysqli = new mysqli("localhost", "killen2_4150_lab3", $secret, "killen2_4150_lab3");
 
 if ($mysqli == false) {
     session_destroy();

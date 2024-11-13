@@ -12,7 +12,8 @@ function handle_err($error) {
 // Make sure the id and password are passed in the POST request. Make sure the id is numeric.
 if (!empty($login_id) && !empty($login_pass) && is_numeric($login_id)) {
     // Connect to database.
-    $mysqli = new mysqli("localhost", "killen2_4150_lab3", "re*WPBtDHEabVG", "killen2_4150_lab3");
+    $secret = file_get_contents("secret.txt");
+    $mysqli = new mysqli("localhost", "killen2_4150_lab3", $secret, "killen2_4150_lab3");
 
     if ($mysqli != false) {
         // Get the password hash and account id of the employee with the given id from the request.

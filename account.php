@@ -8,6 +8,7 @@ $emp_fname = "";
 $emp_lname = "";
 
 // Connect to database.
+$secret = file_get_contents("secret.txt");
 $mysqli = new mysqli("localhost", "killen2_4150_lab3", "re*WPBtDHEabVG", "killen2_4150_lab3");
 
 if ($mysqli == false) {
