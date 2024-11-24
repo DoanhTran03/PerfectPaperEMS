@@ -13,10 +13,10 @@
     <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav">
             <li class="nav-item">
-                <a class="nav-link" href="./projects">My Projects</a>
+                <a class="nav-link" href="./myprojects">My Projects</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="./tasks">My Tasks</a>
+                <a class="nav-link" href="./mytasks">My Tasks</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="./myaccount">My Account</a>

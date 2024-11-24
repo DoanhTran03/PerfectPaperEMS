@@ -9,11 +9,16 @@ class Login
 
 	public function index()
 	{
+		$this->view(get_class($this));
+	}
+
+	public function auth()
+	{
 		$usr = new Account();
 
 		// Check if the user is logged in.
 		if ($usr->is_logged_in()) {
-			header("Location: ../public");
+			echo "{\"result\": \"Error\", \"msg\":\"Already logged in.\"}";
 		// If they are not, check if they sent data through the login form.
 		} else if (isset($_POST["usr_id"]) && isset($_POST["usr_pass"])) {
 			$usr_id = $_POST["usr_id"];
@@ -21,12 +26,10 @@ class Login
 
 			// Attempt to log in with form data.
 			if ($usr->log_in($usr_id, $usr_pass)) {
-				header("Location: ../public");
+				echo "{\"result\": \"Success\"}";
 			} else {
-				$_GET["error"] = 1;
+				echo "{\"result\": \"Error\", \"msg\":\"Failed to log in. Check your connection and credentials.\"}";
 			}
 		}
-
-		$this->view(get_class($this));
 	}
 }

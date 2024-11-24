@@ -50,7 +50,8 @@ class Employee
         return false;
     }
 
-    public function get_emp_from_token() {
+    public function get_emp_from_token()
+    {
         $acc = new Account();
         $usr_data = $acc->user_from_token();
 
@@ -66,5 +67,16 @@ class Employee
         }
 
         return false;
+    }
+
+    public function set_address($addr)
+    {
+        $emp = $this->get_emp_from_token();
+
+        if ($emp == false) {
+            return false;
+        }
+
+        return $this->update($emp->Id, ["Address" => $addr]);
     }
 }

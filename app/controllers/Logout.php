@@ -12,6 +12,6 @@ class Logout
             print("Could not clear session!");
         }
 
-        header("Location: ../public");
+        header("Location: ./");
     }
 }
