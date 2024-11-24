@@ -20,8 +20,9 @@
     </div>
 
     <?php
+        $err_no = $_GET["error"];
         if (isset($err_no) && is_numeric($err_no) && $err_no > 0) {
-            echo "<div class='mt-2 alert alert-danger p-2'>" . "Error: " . $err_msgs[$err_no - 1] . "</div>";
+            echo "<div class='mt-2 alert alert-danger p-2'>" . "Failed to log in. Error code: " . $err_no . "</div>";
         }
     ?>
     

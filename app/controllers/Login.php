@@ -23,7 +23,7 @@ class Login
 			if ($usr->log_in($usr_id, $usr_pass)) {
 				header("Location: ../public");
 			} else {
-				echo "Failed to log in.";
+				$_GET["error"] = 1;
 			}
 		}
 

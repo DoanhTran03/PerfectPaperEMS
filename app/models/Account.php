@@ -26,12 +26,8 @@ class Account
 		$results = $this->where(["Employee_id" => $emp_id]);
 		$user = $results[0];
 		$user = $results[0];
-		echo "logging in.";
-
-
 
 		if (empty($user)) {
-			echo "DID NOT FIND USER.";
 			return false;
 		}
 
@@ -87,8 +83,7 @@ class Account
 		return true;
 	}
 
-	// Essentially logging out. Will be renamed later.
-	public function clear_session() {
+	public function log_out() {
 		$user = $this->user_from_token();
 		session_unset();
 

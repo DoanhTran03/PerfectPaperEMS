@@ -8,10 +8,10 @@ class Logout
 	{
         $usr = new Account();
         
-        if ($usr->clear_session()) {
-            echo "Cleared session!";
-        } else {
-            echo "Failed to clear session.";
+        if (!$usr->log_out()) {
+            print("Could not clear session!");
         }
+
+        header("Location: ../public");
     }
 }

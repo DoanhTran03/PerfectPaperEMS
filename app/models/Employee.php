@@ -12,8 +12,16 @@ class Employee
     protected $table = 'Employee';
 
     protected $allowedColumns = [
-        'email',
-        'password',
+        'Id',
+        'Fname',
+        'Lname',
+        'Ssn',
+        'Bdate',
+        'Address',
+        'Sex',
+        'Salary',
+        'Dept_id',
+        'Is_admin'
     ];
 
     public function validate($data)
@@ -37,6 +45,24 @@ class Employee
 
         if (empty($this->errors)) {
             return true;
+        }
+
+        return false;
+    }
+
+    public function get_emp_from_token() {
+        $acc = new Account();
+        $usr_data = $acc->user_from_token();
+
+        if ($usr_data != false) {
+            $results = $this->where(["Id" => $usr_data->Employee_id]);
+		    $emp = $results[0];
+
+		    if (empty($emp)) {
+			    return false;
+		    }
+
+            return $emp;
         }
 
         return false;
