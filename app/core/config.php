@@ -2,23 +2,23 @@
 
 if ($_SERVER['SERVER_NAME'] == 'localhost') {
 	/** database config **/
-	define('DBNAME', 'killen2_4150_lab3');
+	define('DBNAME', 'tran97_comp4150db');
 	define('DBHOST', 'localhost');
-	define('DBUSER', 'killen2_4150_lab3');
+	define('DBUSER', 'tran97_comp4150db');
 	define('DBPASS', file_get_contents(dirname(__FILE__) . "/secret.txt"));
 	define('DBDRIVER', '');
 
-	define('ROOT', 'http://localhost/mvc/public');
+	define('ROOT', 'https://tran97.myweb.cs.uwindsor.ca/integrate/public');
 
 } else {
 	/** database config **/
-	define('DBNAME', 'killen2_4150_lab3');
+	define('DBNAME', 'tran97_comp4150db');
 	define('DBHOST', 'localhost');
-	define('DBUSER', 'killen2_4150_lab3');
+	define('DBUSER', 'tran97_comp4150db');
 	define('DBPASS', file_get_contents(dirname(__FILE__) . "/secret.txt"));
 	define('DBDRIVER', '');
 
-	define('ROOT', 'https://killen2.myweb.cs.uwindsor.ca/finalproject');
+	define('ROOT', 'https://tran97.myweb.cs.uwindsor.ca/integrate/public');
 
 }
 
