@@ -102,7 +102,7 @@ trait Model
 		return false;
 	}
 
-	public function update($id, $data, $id_column = 'id')
+	public function update($id, $data, $id_column = 'Id')
 	{
 
 		/** remove unwanted data **/
@@ -138,7 +138,7 @@ trait Model
 
 	}
 
-	public function delete($id, $id_column = 'id')
+	public function delete($id, $id_column = 'Id')
 	{
 		$message = "Entry Dedeleted successfully";
 		try {
