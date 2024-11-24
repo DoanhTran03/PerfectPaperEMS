@@ -100,6 +100,18 @@ class Account
 		return false;
 	}
 
+	public function set_password($pass)
+	{
+		$user = $this->user_from_token();
+
+		if ($user == false) {
+			return false;
+		}
+
+		$hash = password_hash($pass, PASSWORD_DEFAULT);
+		return $this->update($user->Id, ["Pass_hash" => $hash]);
+	}
+
 	public function create_user($data)
 	{
 		$data["Pass_hash"] = password_hash($data["Pass_hash"], PASSWORD_DEFAULT);
