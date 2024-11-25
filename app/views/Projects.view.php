@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Perfect Paper - Home</title>
+    <title>Perfect Paper - My Projects</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
 </head>
@@ -144,7 +144,7 @@
         "bPaginate": false, //hide pagination
         "searchDelay": 500,
         "ajax": {
-            "url": "<?php echo ROOT . "/projects/getProjectsByEmployeeID" ?>",
+            "url": "<?php echo ROOT . "/public/projects/getProjectsByEmployeeID" ?>",
             "type": "GET",
             "data": (d) => {
                 return $.extend({}, d, {
@@ -235,7 +235,7 @@
         var obj = $(e.delegateTarget).DataTable().row($(this).parents('tr')).data();
 
         $.ajax({
-            url: "<?php echo ROOT . "/projects/deleteProjectsByProjectNumber" ?>",
+            url: "<?php echo ROOT . "/public/projects/deleteProjectsByProjectNumber" ?>",
             method: "POST",
             data: {
                 p_num: 2,
@@ -256,7 +256,7 @@
         let form = $(this).serializeArray();
         console.log(form);
         $.ajax({
-            url: "<?php echo ROOT . "/projects/updateProjectsByProjectNumber" ?>",
+            url: "<?php echo ROOT . "/public/projects/updateProjectsByProjectNumber" ?>",
             method: "POST",
             data: form,
             dataType: "json"
