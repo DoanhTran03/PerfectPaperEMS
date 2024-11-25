@@ -10,6 +10,7 @@ INSERT INTO Project VALUES(8, 'Upgrades to ERP', 'Room 105', 3, 750000.00);
 INSERT INTO Project VALUES(9, 'Audit', 'Room 105', 3, 235000.00);
 INSERT INTO Project VALUES(10, 'Foreign Markets', 'Room 235', 4, 1124000.00);
 INSERT INTO Project VALUES(11, 'Negotiation', 'Room 234', 4, 4500000.00);
+INSERT INTO Project VALUES(12, 'Rehaul Company Focus', 'Room 115', 1, 2100000.00);
 
 /* Works_On (eno, pno, hours) */
 /* Production projects */
@@ -18,8 +19,13 @@ INSERT INTO Works_On VALUES(10, 2, 13.2);
 INSERT INTO Works_On VALUES(11, 3, 26.8);
 
 /* Admin projects */
+
 INSERT INTO Works_On VALUES(2, 4, 76.1);
-INSERT INTO Works_On VALUES(1, 5, 32.3);
+INSERT INTO Works_On VALUES(2, 4, 32.5);
+INSERT INTO Works_On VALUES(2, 12, 16.8);
+INSERT INTO Works_On VALUES(1, 4, 32.3);
+INSERT INTO Works_On VALUES(1, 5, 27.1);
+INSERT INTO Works_On VALUES(1, 12, 42.9);
 
 /* HR projects */
 INSERT INTO Works_On VALUES(6, 6, 46.1);

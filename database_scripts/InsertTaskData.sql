@@ -29,3 +29,9 @@ INSERT INTO Employees_On_Task VALUES(7, 8, STR_TO_DATE('2024-06-30', '%Y-%m-%d')
 INSERT INTO Employees_On_Task VALUES(8, 9, STR_TO_DATE('2024-03-24', '%Y-%m-%d'), null);
 INSERT INTO Employees_On_Task VALUES(8, 10, STR_TO_DATE('2024-04-27', '%Y-%m-%d'), null);
 INSERT INTO Employees_On_Task VALUES(7, 11, STR_TO_DATE('2024-07-02', '%Y-%m-%d'), null);
+INSERT INTO Employees_On_Task VALUES(1, 5, STR_TO_DATE('2024-08-31', '%Y-%m-%d'), null);
+INSERT INTO Employees_On_Task VALUES(1, 6, STR_TO_DATE('2024-08-31', '%Y-%m-%d'), null);
+INSERT INTO Employees_On_Task VALUES(1, 7, STR_TO_DATE('2024-08-31', '%Y-%m-%d'), null);
+INSERT INTO Employees_On_Task VALUES(2, 4, STR_TO_DATE('2024-08-31', '%Y-%m-%d'), null);
+INSERT INTO Employees_On_Task VALUES(2, 6, STR_TO_DATE('2024-08-31', '%Y-%m-%d'), null);
+INSERT INTO Employees_On_Task VALUES(2, 7, STR_TO_DATE('2024-08-31', '%Y-%m-%d'), null);

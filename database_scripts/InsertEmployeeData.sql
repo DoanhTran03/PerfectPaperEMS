@@ -28,8 +28,8 @@ INSERT INTO Supervisor_Supervisee VALUES(10, 11, null, null);
 INSERT INTO Supervisor_Supervisee VALUES(10, 13, null, null);
 
 /* Accounts */
-INSERT INTO Account VALUES(1, 1, 'NOT REAL PASSWORD HASH', null, null, 1);
-INSERT INTO Account VALUES(2, 2, 'NOT REAL PASSWORD HASH', null, null, 1);
+INSERT INTO Account VALUES(1, 1, '$2y$10$DRKCrssxfEb2ATwIaMT4L.1FH3Y5zaS42/YeTDln/VpAKhiprZ2s6', null, null, 1);
+INSERT INTO Account VALUES(2, 2, '$2y$10$DRKCrssxfEb2ATwIaMT4L.1FH3Y5zaS42/YeTDln/VpAKhiprZ2s6', null, null, 1);
 INSERT INTO Account VALUES(3, 3, 'NOT REAL PASSWORD HASH', null, null, 1);
 INSERT INTO Account VALUES(4, 4, 'NOT REAL PASSWORD HASH', null, null, 1);
 INSERT INTO Account VALUES(5, 5, 'NOT REAL PASSWORD HASH', null, null, 1);
