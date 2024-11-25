@@ -1,7 +1,7 @@
-@@InsertEmployeeData.sql
-@@InsertDepartmentData.sql
-@@InsertProjectData.sql
-@@InsertTaskData.sql
+-- @@InsertEmployeeData.sql
+-- @@InsertDepartmentData.sql
+-- @@InsertProjectData.sql
+-- @@InsertTaskData.sql
 
 /* Add departments to employees */
 UPDATE Employee SET Dept_id = 1 WHERE Id = 1 OR Id = 2 OR Id = 3;

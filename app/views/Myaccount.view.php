@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -7,6 +8,7 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
 </head>
+
 <body data-bs-theme="dark">
 <nav class="navbar navbar-expand-lg bg-body-secondary sticky-top">
 <div class="container-fluid">
@@ -14,10 +16,10 @@
     <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav">
             <li class="nav-item">
-                <a class="nav-link" href="./myprojects">My Projects</a>
+                <a class="nav-link" href="./projects">My Projects</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="./mytasks">My Tasks</a>
+                <a class="nav-link" href="./tasks">My Tasks</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="">My Account</a>
@@ -30,7 +32,6 @@
             </li>
         </ul>
     </div>
-</div>
 </nav>
 
 <div class="m-10 p-5 jumbotron d-flex flex-column justify-content-center bg-body-tertiary">
@@ -142,4 +143,5 @@
 </footer>
 </div>
 </body>
+
 </html>
