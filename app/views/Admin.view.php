@@ -120,7 +120,6 @@
     <div class="m-10 p-5 jumbotron d-flex flex-column justify-content-center bg-body-tertiary">
         <div class="w-70 h-100 container d-flex flex-column">
             <h1 class='mb-4'>Admin Panel</h1>
-            <button class="my-2 btn btn-success" style="max-width: 10vw;">New Employee</button>
             <div class="container-md">
                 <div class="tab-pane mt-4 active" id="tabComment" role="tabpanel">
                     <div class="table-responsive">
@@ -250,7 +249,7 @@
     $("#tbl_EmployeeList").on("click", ".btn_update", function (e) {
         var obj = $(e.delegateTarget).DataTable().row($(this).parents('tr')).data();
         console.log(obj);
-        $("#t_id").val(obj.Id);
+        $("#t_emp_id").val(obj.Id);
         $("#t_fname").val(obj.Fname);
         $("#t_lname").val(obj.Lname);
         $("#t_bdate").val(obj.Bdate);
@@ -274,10 +273,8 @@
         })
             .done(function (message) {
                 alert(message);
+                $('#tbl_EmployeeList').DataTable().ajax.reload();
             })
-            .fail(() => {
-                alert("There is a error on network, please reload the page");
-            });
     });
 
     $('#form_detail_review').submit(function (e) {

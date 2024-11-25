@@ -101,6 +101,26 @@ class Employee
             return false;
         }
 
-        return $this->findAll();
+        return $this->query("SELECT * FROM Employee;");
+    }
+
+    public function update_info($id, $data)
+    {
+        if (!$this->is_admin()) {
+            return false;
+        }
+
+        return $this->update($id, $data);
+    }
+
+    public function delete_from_id($id)
+    {
+        if (!$this->is_admin()) {
+            return false;
+        }
+
+        $acc = new Account();
+        $acc->query("DELETE FROM Account WHERE Employee_id = :emp_id;", [":emp_id" => $id]);
+        return $this->query("DELETE FROM Employee WHERE Id = :emp_id;", [":emp_id" => $id]);
     }
 }
