@@ -89,9 +89,13 @@
                     <li class="nav-item">
                         <a class="nav-link" href="./myaccount">My Account</a>
                     </li>
-                    <li class="nav-item" hidden>
-                        <a class="nav-link" href="./admin">Admin</a>
-                    </li>
+                    <?php
+                        $emp = new Employee();
+
+                        if ($emp->is_admin()) {
+                            echo "<li class=\"nav-item\"><a class=\"nav-link\" href=\"./admin\">Admin</a></li>";
+                        }
+                    ?>
                     <li class="nav-item">
                         <a class="nav-link" href="./logout"><b>Log out</b></a>
                     </li>

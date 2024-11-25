@@ -79,4 +79,28 @@ class Employee
 
         return $this->update($emp->Id, ["Address" => $addr]);
     }
+
+    public function is_admin()
+    {
+        $emp = $this->get_emp_from_token();
+
+        if ($emp == false) {
+            return false;
+        }
+
+        if ($emp->Is_admin) {
+            return true;
+        }
+
+        return false;
+    }
+
+    public function get_all()
+    {
+        if (!$this->is_admin()) {
+            return false;
+        }
+
+        return $this->findAll();
+    }
 }
