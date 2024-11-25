@@ -133,7 +133,7 @@
             });
         });
     </script>
-    <h2 class="my-2">Dependents</h2>
+    <h2 class="my-2"><a href="./dependents">Dependents</a></h2>
 </div>
 </div>
 

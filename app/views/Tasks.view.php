@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Perfect Paper - Home</title>
+    <title>Perfect Paper - My Tasks</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
 </head>
@@ -160,7 +160,7 @@
         "bPaginate": false, //hide pagination
         "searchDelay": 500,
         "ajax": {
-            "url": "<?php echo ROOT . "/tasks/getTasksByEmployeeID" ?>",
+            "url": "<?php echo ROOT . "/public/tasks/getTasksByEmployeeID" ?>",
             "type": "GET",
             "data": (d) => {
                 return $.extend({}, d, {
@@ -227,7 +227,7 @@
     $(document).ready(function () {
         // console.log("Everything have been loaded");
         // $.ajax({
-        //     url: "<?php echo ROOT . "/tasks/getTasksByEmployeeID" ?>",
+        //     url: "<?php echo ROOT . "/public/tasks/getTasksByEmployeeID" ?>",
         //     method: "GET",
         //     data: {
         //     },
@@ -253,7 +253,7 @@
 
         $("#modal_task_review").modal('show');
         // $.ajax({
-        //     "url": "<?php echo ROOT . "/tasks/updateTaskByTaskId" ?>",
+        //     "url": "<?php echo ROOT . "/public/tasks/updateTaskByTaskId" ?>",
         //     method: "POST",
         //     data: {
         //     },
@@ -271,7 +271,7 @@
         var obj = $(e.delegateTarget).DataTable().row($(this).parents('tr')).data();
 
         $.ajax({
-            url: "<?php echo ROOT . "/tasks/deleteTaskByTaskId" ?>",
+            url: "<?php echo ROOT . "/public/tasks/deleteTaskByTaskId" ?>",
             method: "POST",
             data: {
                 t_id: obj.Task_id,
@@ -292,7 +292,7 @@
         let form = $(this).serializeArray();
         console.log(form);
         $.ajax({
-            "url": "<?php echo ROOT . "/tasks/updateTaskByTaskId" ?>",
+            "url": "<?php echo ROOT . "/public/tasks/updateTaskByTaskId" ?>",
             method: "POST",
             data: form,
             dataType: "json"
