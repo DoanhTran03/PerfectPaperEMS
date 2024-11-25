@@ -4,44 +4,58 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Perfect Paper - My Projects</title>
+    <title>Perfect Paper - Home</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
 </head>
 
 <body data-bs-theme="dark">
     <!-- Modal -->
-    <div class="modal fade show" data-backdrop="false" id="modal_detail_review" tabindex="-1" style="display: none;"
+    <div class="modal fade show" data-backdrop="false" id="modal_task_review" tabindex="-1" style="display: none;"
         role="dialog">
         <form id="form_detail_review">
             <div class="modal-dialog modal-xl">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h5 class="modal-title">Update Project</h5>
+                        <h5 class="modal-title">Update Tasks</h5>
                     </div>
                     <div class="modal-body">
                         <div class="row">
-                            <input type="hidden" id="p_num" name="p_num" value="" />
-
+                            <input type="hidden" id="t_id" name="t_id" value="" />
 
                             <div class="col-md-12">
                                 <div class="col-md-12">
                                     <div class="mb-3">
-                                        <label for="p_name" class="form-label">Project Name</label>
-                                        <input name="Pname" type="text" class="form-control" id="p_name" placeholder="">
-                                    </div>
-                                </div>
-                                <div class="col-md-12">
-                                    <div class="mb-3">
-                                        <label for="p_location" class="form-label">Project Location</label>
-                                        <input name="Plocation" type="text" class="form-control" id="p_location"
+                                        <label for="t_name" class="form-label">Task Name</label>
+                                        <input name="t_name" type="text" class="form-control" id="t_name"
                                             placeholder="">
                                     </div>
                                 </div>
                                 <div class="col-md-12">
                                     <div class="mb-3">
-                                        <label for="p_budget" class="form-label">Budget</label>
-                                        <input name="Budget" type="number" class="form-control" id="p_budget"
+                                        <label for="t_description" class="form-label">Task Description</label>
+                                        <input name="t_description" type="text" class="form-control" id="t_description"
+                                            placeholder="">
+                                    </div>
+                                </div>
+                                <div class="col-md-12">
+                                    <div class="mb-3">
+                                        <label for="t_status" class="form-label">Status</label>
+                                        <input name="t_status" type="text" class="form-control" id="t_status"
+                                            placeholder="" disabled>
+                                    </div>
+                                </div>
+                                <div class="col-md-12">
+                                    <div class="mb-3">
+                                        <label for="t_startdate" class="form-label">Start Date</label>
+                                        <input name="t_startdate" type="text" class="form-control" id="t_startdate"
+                                            placeholder="">
+                                    </div>
+                                </div>
+                                <div class="col-md-12">
+                                    <div class="mb-3">
+                                        <label for="t_enddate" class="form-label">End Date</label>
+                                        <input name="t_enddate" type="text" class="form-control" id="t_enddate"
                                             placeholder="">
                                     </div>
                                 </div>
@@ -102,9 +116,11 @@
                             class="display table table-hover table-condensed table-striped table-bordered">
                             <thead class="bg-dark">
                                 <tr>
-                                    <th>Project Name</th>
-                                    <th>Project Location</th>
-                                    <th>Budget</th>
+                                    <th>Task Name</th>
+                                    <th>Task Description</th>
+                                    <th>Status</th>
+                                    <th>Start Date</th>
+                                    <th>End Date</th>
                                     <th></th>
                                 </tr>
                             </thead>
@@ -144,7 +160,7 @@
         "bPaginate": false, //hide pagination
         "searchDelay": 500,
         "ajax": {
-            "url": "<?php echo ROOT . "/public/projects/getProjectsByEmployeeID" ?>",
+            "url": "<?php echo ROOT . "/tasks/getTasksByEmployeeID" ?>",
             "type": "GET",
             "data": (d) => {
                 return $.extend({}, d, {
@@ -163,8 +179,10 @@
                 console.log(json);
                 json.forEach(element => {
                     element.name = element.Name,
-                        element.location = element.Location,
-                        element.budget = element.Budget,
+                        element.description = element.Description,
+                        element.status = element.Status,
+                        element.start_date = element.Start_Date,
+                        element.end_date = element.End_Date,
                         element.Method =
                         `<div class="d-flex flex-row justify-content-center align-items-center" style="gap: 10px">
                     <button type="button" class="btn btn-primary btn_update">Update</button>
@@ -186,9 +204,10 @@
                 "targets": [0]
             },
             {
-                "width": "8%",
+                "className": "text-center",
+                "width": "15%",
                 "orderable": false,
-                "targets": [3]
+                "targets": [3, 4]
             },
             {
                 "className": "text-center",
@@ -197,29 +216,46 @@
         ],
         "columns": [
             { "data": "name" },
-            { "data": "location" },
-            { "data": "budget" },
+            { "data": "description" },
+            { "data": "status" },
+            { "data": "start_date" },
+            { "data": "end_date" },
             { "data": "Method" }
         ],
     });
 
     $(document).ready(function () {
-        console.log("Everything have been loaded");
+        // console.log("Everything have been loaded");
+        // $.ajax({
+        //     url: "<?php echo ROOT . "/tasks/getTasksByEmployeeID" ?>",
+        //     method: "GET",
+        //     data: {
+        //     },
+        //     dataType: "json"
+        // })
+        //     .done(function (message) {
+        //         alert(message);
+        //     })
+        //     .fail(() => {
+        //         alert("There is a error on network, please reload the page");
+        //     });
     });
 
     $("#tbl_ProjectList").on("click", ".btn_update", function (e) {
         var obj = $(e.delegateTarget).DataTable().row($(this).parents('tr')).data();
-        $("#p_num").val(obj.Project_id);
-        $("#p_name").val(obj.name);
-        $("#p_location").val(obj.location);
-        $("#p_budget").val(obj.budget);
+        console.log(obj);
+        $("#t_id").val(obj.Task_id);
+        $("#t_name").val(obj.name);
+        $("#t_description").val(obj.description);
+        $("#t_status").val(obj.Status);
+        $("#t_startdate").val(obj.start_date);
+        $("#t_enddate").val(obj.end_date);
 
-        $("#modal_detail_review").modal('show');
+        $("#modal_task_review").modal('show');
         // $.ajax({
-        //     url: "https://tran97.myweb.cs.uwindsor.ca/public/ProjectController/updateProjectsByProjectNumber",
+        //     "url": "<?php echo ROOT . "/tasks/updateTaskByTaskId" ?>",
         //     method: "POST",
         //     data: {
-        //         p_num: 2,
         //     },
         //     dataType: "json"
         // })
@@ -235,9 +271,11 @@
         var obj = $(e.delegateTarget).DataTable().row($(this).parents('tr')).data();
 
         $.ajax({
-            url: "<?php echo ROOT . "/public/projects/deleteProjectsByProjectNumber" ?>",
+            url: "<?php echo ROOT . "/tasks/deleteTaskByTaskId" ?>",
             method: "POST",
-            data: obj.Project_id,
+            data: {
+                t_id: obj.Task_id,
+            },
             dataType: "json"
         })
             .done(function (message) {
@@ -254,7 +292,7 @@
         let form = $(this).serializeArray();
         console.log(form);
         $.ajax({
-            url: "<?php echo ROOT . "/public/projects/updateProjectsByProjectNumber" ?>",
+            "url": "<?php echo ROOT . "/tasks/updateTaskByTaskId" ?>",
             method: "POST",
             data: form,
             dataType: "json"
@@ -270,7 +308,7 @@
     });
 
     $(".btn_exit").on("click", function () {
-        $("#modal_detail_review").modal("hide");
+        $("#modal_task_review").modal("hide");
     })
 
 </script>
