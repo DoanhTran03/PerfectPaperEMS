@@ -89,34 +89,35 @@
     <!-- End Modal -->
 
     <nav class="navbar navbar-expand-lg bg-body-secondary sticky-top">
-        <div class="container-fluid">
-            <a class="navbar-brand" href="./">Perfect Paper</a>
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav">
-                    <li class="nav-item">
-                        <a class="nav-link" href="./projects">My Projects</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="./tasks">My Tasks</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="./myaccount">My Account</a>
-                    </li>
-                    <?php
-                        $emp = new Employee();
+    <div class="container-fluid">
+        <a class="navbar-brand" href="<?php echo ROOT . "public" ?>">Perfect Paper</a>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link" href="<?php echo ROOT . "public/projects"?>">My Projects</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="<?php echo ROOT . "public/tasks"?>">My Tasks</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="<?php echo ROOT . "public/myaccount"?>">My Account</a>
+                </li>
 
-                        if ($emp->is_admin()) {
-                            echo "<li class=\"nav-item\"><a class=\"nav-link\" href=\"./admin\">Admin</a></li>";
-                        }
-                    ?>
-                    <li class="nav-item">
-                        <a class="nav-link" href="./logout"><b>Log out</b></a>
-                    </li>
-                </ul>
-            </div>
+                <?php
+                    $emp = new Employee();
+
+                    if ($emp->is_admin()) {
+                        echo "<li class=\"nav-item\"><a class=\"nav-link\" href=\"" . ROOT . "public/admin\">Admin</a></li>";
+                    }
+                ?>
+                <li class="nav-item">
+                    <a class="nav-link" href="<?php echo ROOT . "public/logout"?>"><b>Log out</b></a>
+                </li>
+            </ul>
         </div>
+    </div>
     </nav>
-
+    
     <div class="m-10 p-5 jumbotron d-flex flex-column justify-content-center bg-body-tertiary">
         <div class="w-70 h-100 container d-flex flex-column">
             <h1 class='mb-4'>Admin Panel</h1>
@@ -249,6 +250,8 @@
     $("#tbl_EmployeeList").on("click", ".btn_update", function (e) {
         var obj = $(e.delegateTarget).DataTable().row($(this).parents('tr')).data();
         console.log(obj);
+
+        $("#t_id").val(obj.Id);
         $("#t_emp_id").val(obj.Id);
         $("#t_fname").val(obj.Fname);
         $("#t_lname").val(obj.Lname);
@@ -273,8 +276,9 @@
         })
             .done(function (message) {
                 alert(message);
-                $('#tbl_EmployeeList').DataTable().ajax.reload();
             })
+
+        $('#tbl_EmployeeList').DataTable().ajax.reload();
     });
 
     $('#form_detail_review').submit(function (e) {

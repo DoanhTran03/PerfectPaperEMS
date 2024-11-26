@@ -11,30 +11,32 @@
 
 <body data-bs-theme="dark">
 <nav class="navbar navbar-expand-lg bg-body-secondary sticky-top">
-<div class="container-fluid">
-    <a class="navbar-brand" href="./">Perfect Paper</a>
-    <div class="collapse navbar-collapse" id="navbarNav">
-        <ul class="navbar-nav">
-            <li class="nav-item">
-                <a class="nav-link" href="./projects">My Projects</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="./tasks">My Tasks</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="">My Account</a>
-            </li>
-            <?php
-                $emp = new Employee();
+    <div class="container-fluid">
+        <a class="navbar-brand" href="<?php echo ROOT . "public" ?>">Perfect Paper</a>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link" href="<?php echo ROOT . "public/projects"?>">My Projects</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="<?php echo ROOT . "public/tasks"?>">My Tasks</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="<?php echo ROOT . "public/myaccount"?>">My Account</a>
+                </li>
 
-                if ($emp->is_admin()) {
-                    echo "<li class=\"nav-item\"><a class=\"nav-link\" href=\"./admin\">Admin</a></li>";
-                }
-            ?>
-            <li class="nav-item">
-                <a class="nav-link" href="./logout"><b>Log out</b></a>
-            </li>
-        </ul>
+                <?php
+                    $emp = new Employee();
+
+                    if ($emp->is_admin()) {
+                        echo "<li class=\"nav-item\"><a class=\"nav-link\" href=\"" . ROOT . "public/admin\">Admin</a></li>";
+                    }
+                ?>
+                <li class="nav-item">
+                    <a class="nav-link" href="<?php echo ROOT . "public/logout"?>"><b>Log out</b></a>
+                </li>
+            </ul>
+        </div>
     </div>
 </nav>
 
@@ -68,7 +70,7 @@
         <button type="submit" class="my-2 btn btn-primary">Update</button>
     </form>
     <script type = "text/javascript">
-        $.get("./myaccount/get_info", function (data) {
+        $.get("<?php echo ROOT ?>public/myaccount/get_info", function (data) {
             var ret_data = JSON.parse(data);   
             var usr_data = ret_data[0]; 
             var dept_data = ret_data[1];
@@ -101,7 +103,7 @@
         $(document).ready(function() {
             $("#info_form").on("submit", function (evt) {
                 evt.preventDefault();
-                $.post("./myaccount/change_info", $("#info_form").serialize(), function (data, status) {
+                $.post("<?php echo ROOT ?>public/myaccount/change_info", $("#info_form").serialize(), function (data, status) {
                     var result = JSON.parse(data);
 
                     if (result.result === "Error") {
@@ -118,7 +120,7 @@
 
             $("#pwd_form").on("submit", function (evt) {
                 evt.preventDefault();
-                $.post("./myaccount/change_password", $("#pwd_form").serialize(), function (data, status) {
+                $.post("<?php echo ROOT ?>public/myaccount/change_password", $("#pwd_form").serialize(), function (data, status) {
                     var result = JSON.parse(data);
 
                     if (result.result === "Error") {
@@ -137,7 +139,7 @@
             });
         });
     </script>
-    <h2 class="my-2"><a href="./dependents">Dependents</a></h2>
+    <h2 class="my-2"><a href="<?php echo ROOT ?>public/dependents">Dependents</a></h2>
 </div>
 </div>
 

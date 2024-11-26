@@ -1,5 +1,5 @@
 /* HQ */
-INSERT INTO Employee VALUES(1, 'Jane', 'M', 'Leibowitz', '123663544', STR_TO_DATE('1970-04-08', '%Y-%m-%d'), '18887 Normandy St.', 'F', 120000.00, null, 0);
+INSERT INTO Employee VALUES(1, 'Jane', 'M', 'Leibowitz', '123663544', STR_TO_DATE('1970-04-08', '%Y-%m-%d'), '18887 Normandy St.', 'F', 120000.00, null, 1);
 INSERT INTO Employee VALUES(2, 'Veronica', 'A', 'Durocher', '123633294', STR_TO_DATE('1965-12-17', '%Y-%m-%d'), '376 Dupont Ln.', 'F', 11000.00, null, 0);
 INSERT INTO Employee VALUES(3, 'Patricia', 'K', 'Mbowe', '673643234', STR_TO_DATE('1989-07-11', '%Y-%m-%d'), '6562 Clark St.', 'F', 97000.00, null, 0);
 

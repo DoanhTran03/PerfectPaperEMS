@@ -77,27 +77,27 @@
 
     <nav class="navbar navbar-expand-lg bg-body-secondary sticky-top">
         <div class="container-fluid">
-            <a class="navbar-brand" href="./">Perfect Paper</a>
+            <a class="navbar-brand" href="<?php echo ROOT . "public" ?>">Perfect Paper</a>
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav">
                     <li class="nav-item">
-                        <a class="nav-link" href="./projects">My Projects</a>
+                        <a class="nav-link" href="<?php echo ROOT . "public/projects"?>">My Projects</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="./tasks">My Tasks</a>
+                        <a class="nav-link" href="<?php echo ROOT . "public/tasks"?>">My Tasks</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="./myaccount">My Account</a>
+                        <a class="nav-link" href="<?php echo ROOT . "public/myaccount"?>">My Account</a>
                     </li>
                     <?php
                         $emp = new Employee();
 
                         if ($emp->is_admin()) {
-                            echo "<li class=\"nav-item\"><a class=\"nav-link\" href=\"./admin\">Admin</a></li>";
+                            echo "<li class=\"nav-item\"><a class=\"nav-link\" href=\"" . ROOT . "public/admin\">Admin</a></li>";
                         }
                     ?>
                     <li class="nav-item">
-                        <a class="nav-link" href="./logout"><b>Log out</b></a>
+                        <a class="nav-link" href="<?php echo ROOT . "public/logout"?>"><b>Log out</b></a>
                     </li>
                 </ul>
             </div>
@@ -116,7 +116,7 @@
                 ?>
                 <div class="tab-pane mt-4 active" id="tabComment" role="tabpanel">
                     <div class="table-responsive">
-                        <table id="tbl_ProjectList"
+                        <table id="tbl_TaskList"
                             class="display table table-hover table-condensed table-striped table-bordered">
                             <thead class="bg-dark">
                                 <tr>
@@ -158,7 +158,7 @@
 <script src="https://cdn.datatables.net/2.1.8/js/dataTables.js"></script>
 
 <script type="text/javascript">
-    tblProjectList = $('#tbl_ProjectList').DataTable({
+    tblTaskList = $('#tbl_TaskList').DataTable({
         // "processing": true,
         // "serverSide": true,
         "bPaginate": false, //hide pagination
@@ -245,7 +245,7 @@
         //     });
     });
 
-    $("#tbl_ProjectList").on("click", ".btn_update", function (e) {
+    $("#tbl_TaskList").on("click", ".btn_update", function (e) {
         var obj = $(e.delegateTarget).DataTable().row($(this).parents('tr')).data();
         console.log(obj);
         $("#t_id").val(obj.Task_id);
@@ -271,14 +271,14 @@
         //     });
     });
 
-    $("#tbl_ProjectList").on("click", ".btn_del", function (e) {
+    $("#tbl_TaskList").on("click", ".btn_del", function (e) {
         var obj = $(e.delegateTarget).DataTable().row($(this).parents('tr')).data();
 
         $.ajax({
             url: "<?php echo ROOT . "/public/tasks/deleteTaskByTaskId" ?>",
             method: "POST",
             data: {
-                t_id: obj.Task_id,
+                t_id: obj.Task_id
             },
             dataType: "json"
         })

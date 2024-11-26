@@ -57,7 +57,7 @@ class Admin
 
                 $emp = new Employee();
                 $emp->delete_from_id($emp_id);
-                echo "Success.";
+                echo json_encode("Success.");
             }
         } catch (Exception $e) {
             echo json_encode($e->getMessage());

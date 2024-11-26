@@ -37,14 +37,14 @@
         $(document).ready(function() {
             $("#login_form").on("submit", function (evt) {
                 evt.preventDefault();
-                $.post("./login/auth", $("#login_form").serialize(), function (data, status) {
+                $.post("<?php echo ROOT ?>public/login/auth", $("#login_form").serialize(), function (data, status) {
                     var result = JSON.parse(data);
 
                     if (result.result === "Error") {
                         $("#err_box").html("<b>" + result.msg + "</b>");
                         $("#err_box").attr("hidden", false);
                     } else if (result.result === "Success") {
-                        window.location.href = "./";
+                        window.location.href = "<?php echo ROOT ?>public";
                     }
                 });
                 return false;

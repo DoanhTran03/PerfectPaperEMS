@@ -20,7 +20,7 @@ if ($_SERVER['SERVER_NAME'] == 'localhost') {
 	define('DBPASS', $secret);
 	define('DBDRIVER', '');
 
-	define('ROOT', 'https://killen2.myweb.cs.uwindsor.ca/finalproject');
+	define('ROOT', 'https://killen2.myweb.cs.uwindsor.ca/');
 }
 
 define('APP_NAME', "Perfect Paper EMS");

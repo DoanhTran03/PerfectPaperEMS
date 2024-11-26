@@ -63,33 +63,33 @@
 
     <nav class="navbar navbar-expand-lg bg-body-secondary sticky-top">
         <div class="container-fluid">
-            <a class="navbar-brand" href="./">Perfect Paper</a>
+            <a class="navbar-brand" href="<?php echo ROOT . "public" ?>">Perfect Paper</a>
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav">
                     <li class="nav-item">
-                        <a class="nav-link" href="./projects">My Projects</a>
+                        <a class="nav-link" href="<?php echo ROOT . "public/projects"?>">My Projects</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="./tasks">My Tasks</a>
+                        <a class="nav-link" href="<?php echo ROOT . "public/tasks"?>">My Tasks</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="./myaccount">My Account</a>
+                        <a class="nav-link" href="<?php echo ROOT . "public/myaccount"?>">My Account</a>
                     </li>
                     <?php
                         $emp = new Employee();
 
                         if ($emp->is_admin()) {
-                            echo "<li class=\"nav-item\"><a class=\"nav-link\" href=\"./admin\">Admin</a></li>";
+                            echo "<li class=\"nav-item\"><a class=\"nav-link\" href=\"" . ROOT . "public/admin\">Admin</a></li>";
                         }
                     ?>
                     <li class="nav-item">
-                        <a class="nav-link" href="./logout"><b>Log out</b></a>
+                        <a class="nav-link" href="<?php echo ROOT . "public/logout"?>"><b>Log out</b></a>
                     </li>
                 </ul>
             </div>
         </div>
     </nav>
-
+    
     <div class="m-10 p-5 jumbotron d-flex flex-column justify-content-center bg-body-tertiary">
         <div class="w-70 h-100 container d-flex flex-column">
             <!-- Some hardcoded news pieces to add some more content to the home page -->
@@ -241,7 +241,9 @@
         $.ajax({
             url: "<?php echo ROOT . "/public/projects/deleteProjectsByProjectNumber" ?>",
             method: "POST",
-            data: obj.Project_id,
+            data: {
+                p_num: obj.Project_id
+            },
             dataType: "json"
         })
             .done(function (message) {

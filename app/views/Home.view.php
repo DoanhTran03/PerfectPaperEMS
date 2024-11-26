@@ -11,32 +11,33 @@
 
 <body data-bs-theme="dark">
 <nav class="navbar navbar-expand-lg bg-body-secondary sticky-top">
-<div class="container-fluid">
-    <a class="navbar-brand" href="./">Perfect Paper</a>
-    <div class="collapse navbar-collapse" id="navbarNav">
-        <ul class="navbar-nav">
-            <li class="nav-item">
-                <a class="nav-link" href="./projects">My Projects</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="./tasks">My Tasks</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="./myaccount">My Account</a>
-            </li>
-            <?php
-                $emp = new Employee();
+    <div class="container-fluid">
+        <a class="navbar-brand" href="<?php echo ROOT . "public" ?>">Perfect Paper</a>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link" href="<?php echo ROOT . "public/projects"?>">My Projects</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="<?php echo ROOT . "public/tasks"?>">My Tasks</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="<?php echo ROOT . "public/myaccount"?>">My Account</a>
+                </li>
 
-                if ($emp->is_admin()) {
-                    echo "<li class=\"nav-item\"><a class=\"nav-link\" href=\"./admin\">Admin</a></li>";
-                }
-            ?>
-            <li class="nav-item">
-                <a class="nav-link" href="./logout"><b>Log out</b></a>
-            </li>
-        </ul>
+                <?php
+                    $emp = new Employee();
+
+                    if ($emp->is_admin()) {
+                        echo "<li class=\"nav-item\"><a class=\"nav-link\" href=\"" . ROOT . "public/admin\">Admin</a></li>";
+                    }
+                ?>
+                <li class="nav-item">
+                    <a class="nav-link" href="<?php echo ROOT . "public/logout"?>"><b>Log out</b></a>
+                </li>
+            </ul>
+        </div>
     </div>
-</div>
 </nav>
 
 <div class="m-10 p-5 jumbotron d-flex flex-column justify-content-center bg-body-tertiary">
@@ -52,7 +53,7 @@
     <div class="w-100 container d-flex flex-row bg-body-light">
             <!-- Some hardcoded news pieces to add some more content to the home page -->
             <div class="card bg-dark text-white">
-                <img class="card-img-top h-50" src="/img/news_img_1.jpg" alt="Major Plant Upgrades Underway">
+                <img class="card-img-top h-50" src="<?php echo ROOT ?>public/img/news_img_1.jpg" alt="Major Plant Upgrades Underway">
                 <div class="card-body">
                     <h5 class="card-title">Major Plant Upgrades Underway</h5>
                     <p class="card-text">
@@ -64,7 +65,7 @@
                 </div>
             </div>
             <div class="card bg-dark text-white">
-                <img class="card-img-top h-50" src="/img/news_img_2.png" alt="Move to ADP">
+                <img class="card-img-top h-50" src="<?php echo ROOT ?>public/img/news_img_2.png" alt="Move to ADP">
                 <div class="card-body">
                     <h5 class="card-title">Move to ADP</h5>
                     <p class="card-text">
