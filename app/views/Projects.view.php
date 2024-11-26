@@ -76,11 +76,11 @@
                         <a class="nav-link" href="./myaccount">My Account</a>
                     </li>
                     <?php
-                        $emp = new Employee();
+                    $emp = new Employee();
 
-                        if ($emp->is_admin()) {
-                            echo "<li class=\"nav-item\"><a class=\"nav-link\" href=\"./admin\">Admin</a></li>";
-                        }
+                    if ($emp->is_admin()) {
+                        echo "<li class=\"nav-item\"><a class=\"nav-link\" href=\"./admin\">Admin</a></li>";
+                    }
                     ?>
                     <li class="nav-item">
                         <a class="nav-link" href="./logout"><b>Log out</b></a>
@@ -241,11 +241,14 @@
         $.ajax({
             url: "<?php echo ROOT . "/public/projects/deleteProjectsByProjectNumber" ?>",
             method: "POST",
-            data: obj.Project_id,
+            data: {
+                p_num: obj.Project_id
+            },
             dataType: "json"
         })
             .done(function (message) {
                 alert(message);
+                $('#tbl_ProjectList').DataTable().ajax.reload();
             })
             .fail(() => {
                 alert("There is a error on network, please reload the page");

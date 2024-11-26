@@ -19,7 +19,7 @@ class Task
         $keys = array_keys($data);
         $keys_not = array_keys($data_not);
 
-        $query = "SELECT T.Id AS Task_id, S.Name AS Status, T.Name, T.Description, T.Start_Date, T.End_Date
+        $query = "SELECT T.Id AS Task_id, S.Name AS Status, T.Name, T.Description, T.Start_date, T.End_date
                     FROM 
                         Task AS T
                     INNER JOIN 

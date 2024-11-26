@@ -90,11 +90,11 @@
                         <a class="nav-link" href="./myaccount">My Account</a>
                     </li>
                     <?php
-                        $emp = new Employee();
+                    $emp = new Employee();
 
-                        if ($emp->is_admin()) {
-                            echo "<li class=\"nav-item\"><a class=\"nav-link\" href=\"./admin\">Admin</a></li>";
-                        }
+                    if ($emp->is_admin()) {
+                        echo "<li class=\"nav-item\"><a class=\"nav-link\" href=\"./admin\">Admin</a></li>";
+                    }
                     ?>
                     <li class="nav-item">
                         <a class="nav-link" href="./logout"><b>Log out</b></a>
@@ -112,7 +112,7 @@
                 $emp = new Employee();
                 $emp_data = $emp->get_emp_from_token();
 
-                echo "<h4 class='mb-4'>" . $emp_data->Fname . " " . $emp_data->Lname . "'s projects</h4>";
+                echo "<h4 class='mb-4'>" . $emp_data->Fname . " " . $emp_data->Lname . "'s tasks</h4>";
                 ?>
                 <div class="tab-pane mt-4 active" id="tabComment" role="tabpanel">
                     <div class="table-responsive">
@@ -185,8 +185,8 @@
                     element.name = element.Name,
                         element.description = element.Description,
                         element.status = element.Status,
-                        element.start_date = element.Start_Date,
-                        element.end_date = element.End_Date,
+                        element.start_date = element.Start_date,
+                        element.end_date = element.End_date,
                         element.Method =
                         `<div class="d-flex flex-row justify-content-center align-items-center" style="gap: 10px">
                     <button type="button" class="btn btn-primary btn_update">Update</button>
@@ -209,13 +209,17 @@
             },
             {
                 "className": "text-center",
-                "width": "15%",
+                "width": "10%",
                 "orderable": false,
-                "targets": [3, 4]
+                "targets": [3, 4, 5]
             },
             {
                 "className": "text-center",
                 "targets": [0, 1, 2, 3]
+            },
+            {
+                "width": "35%",
+                "targets": [1]
             }
         ],
         "columns": [
@@ -284,6 +288,7 @@
         })
             .done(function (message) {
                 alert(message);
+                $('#tbl_ProjectList').DataTable().ajax.reload();
             })
             .fail(() => {
                 alert("There is a error on network, please reload the page");

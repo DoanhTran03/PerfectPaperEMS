@@ -1,26 +1,25 @@
 <?php
-$db_name = file_get_contents(dirname(__FILE__) . "/dbinfo.txt");
-$secret = file_get_contents(dirname(__FILE__) . "/secret.txt");
 
 if ($_SERVER['SERVER_NAME'] == 'localhost') {
 	/** database config **/
-	define('DBNAME', $db_name);
+	define('DBNAME', 'tran97_comp4150db');
 	define('DBHOST', 'localhost');
-	define('DBUSER', $db_name);
-	define('DBPASS', $secret);
+	define('DBUSER', 'tran97_comp4150db');
+	define('DBPASS', file_get_contents(dirname(__FILE__) . "/secret.txt"));
 	define('DBDRIVER', '');
 
-	define('ROOT', 'http://localhost/mvc/public');
+	define('ROOT', 'https://tran97.myweb.cs.uwindsor.ca/final');
 
 } else {
 	/** database config **/
-	define('DBNAME', $db_name);
+	define('DBNAME', 'tran97_comp4150db');
 	define('DBHOST', 'localhost');
-	define('DBUSER', $db_name);
-	define('DBPASS', $secret);
+	define('DBUSER', 'tran97_comp4150db');
+	define('DBPASS', file_get_contents(dirname(__FILE__) . "/secret.txt"));
 	define('DBDRIVER', '');
 
-	define('ROOT', 'https://killen2.myweb.cs.uwindsor.ca/finalproject');
+	define('ROOT', 'https://tran97.myweb.cs.uwindsor.ca/final');
+
 }
 
 define('APP_NAME', "Perfect Paper EMS");
